@@ -1,5 +1,17 @@
-<div class="list-group">
+<div class="md-padding" style="max-width: 400px;">
+    <md-toolbar layout="row" class="md-primary">
+        <div class="md-toolbar-tools">
+            <span>Покемоны</span>
+        </div>
+    </md-toolbar>
 
-    <pokemon-list-item pokemon="singlePokemon" ng-repeat="singlePokemon in $ctrl.pokemons"></pokemon-list-item>
-
+    <md-content>
+        <md-list>
+            <md-list-item class="md-2-line" ng-repeat="singlePokemon in $ctrl.pokemons">
+                <div class="md-list-item-text">
+                    <pokemon-list-item pokemon="singlePokemon"></pokemon-list-item>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>
 </div>

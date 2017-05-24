@@ -25,23 +25,24 @@
 
     <body>
 
-        <div class="container">
-
-            <div class="panel panel-default">
-                <div class="panel-body">
-
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-default" href="#!/">Главная</a>
-                        <a class="btn btn-default" href="#!/pokemons">Покемоны</a>
-                        <a class="btn btn-default" href="#!/create">Добавить нового</a>
-                    </div>
-
-                </div>
+        <md-content class="md-padding">
+            <md-nav-bar
+                    md-selected-nav-item="currentNavItem"
+                    nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="#!" name="page1">
+                    Главная
+                </md-nav-item>
+                <md-nav-item md-nav-href="#!/pokemons" name="page2">
+                    Покемоны
+                </md-nav-item>
+                <md-nav-item md-nav-href="#!/create" name="page3">
+                    Добавить нового
+                </md-nav-item>
+            </md-nav-bar>
+            <div class="ext-content">
+                <ng-view></ng-view>
             </div>
-
-            <ng-view></ng-view>
-
-        </div>
+        </md-content>
 
         <script src="src/PokemonApp.js"></script>
         <script src="src/CreatePokemon/CreatePokemonCtrl.js"></script>

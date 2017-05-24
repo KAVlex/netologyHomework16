@@ -5,30 +5,31 @@
 
 <div class="alert alert-danger" role="alert" ng-if="$ctrl.notfoundError">Покемон не найден</div>
 
-<uib-tabset active="$ctrl.activeTab">
 
-    <uib-tab heading="Инфо" disable="$ctrl.disableControlTab">
-
+<md-card>
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title">Редактирование покемона</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
         <h1 class="media-heading">{{$ctrl.pokemon.name | uppercase }}</h1>
         <p>Вес:
             {{$ctrl.pokemon.weight}}, рост:
             {{$ctrl.pokemon.height}}</p>
 
-    </uib-tab>
+        <md-card-actions>
+            <md-button class="md-raised md-warn" ng-click="$ctrl.deletePokemon(pokemon.objectId)">
+                <span class="glyphicon glyphicon-trash"></span>
+                Удалить
+            </md-button>
+            <a href="#!/edit/{{$ctrl.pokemon.objectId}}">
+                <md-button class="md-raised md-primary">Редактировать</md-button>
+            </a>
+        </md-card-actions>
 
-    <uib-tab heading="Операции" >
-
-        <button class="btn btn-danger" ng-click="$ctrl.deletePokemon(pokemon.objectId)">
-            <span class="glyphicon glyphicon-trash"></span>
-            Удалить
-        </button>
-        <a class="btn btn-primary" href="#!/edit/{{$ctrl.pokemon.objectId}}">
-            Редактировать
-        </a>
-
-    </uib-tab>
-
-</uib-tabset>
+    </md-card-content>
+</md-card>
 
 <div class="alert alert-success" role="alert" ng-if="$ctrl.deletionSuccess">Пока, покемон!</div>
 <div class="alert alert-danger" role="alert" ng-if="$ctrl.deletionError">Покемоны не сдаются!</div>

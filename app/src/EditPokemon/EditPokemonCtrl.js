@@ -1,6 +1,6 @@
 'use strict';
 
-pokemonApp.controller('EditPokemonCtrl', function($scope, Restangular, $routeParams) {
+pokemonApp.controller('EditPokemonCtrl', function($scope, Restangular, $routeParams, $mdToast) {
 
     Restangular.one('pokemon', $routeParams['pokemonId']).get().then(function(response) {
         $scope.pokemon = response
@@ -11,6 +11,12 @@ pokemonApp.controller('EditPokemonCtrl', function($scope, Restangular, $routePar
         $scope.pokemon.put().then(function(successResult) {
             // Окей!
             $scope.updateSuccess = true;
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent(`Покемон ${successResult.objectId} обновился!`)
+                    .position('bottom right')
+                    .hideDelay(3000)
+            );
         }, function(errorResult) {
             // Не окей..
             $scope.updateSuccess = false;

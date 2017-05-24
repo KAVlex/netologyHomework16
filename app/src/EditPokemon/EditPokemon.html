@@ -1,28 +1,36 @@
-<style>
-    .ng-dirty.ng-invalid {
-        border-color: #FA787E;
-    }
+<md-content class="md-padding" style="max-width: 400px;">
 
-    .ng-dirty.ng-valid {
-        border-color: #78FA89;
-    }
+    <md-card>
+        <md-card-header>
+            <md-card-header-text>
+                <span class="md-title">Редактирование покемона</span>
+            </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Имя</span>
+                <span class="md-subhead">{{pokemon.name}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
 
-</style>
+            <form name="pokemonForm" novalidate>
 
-<div class="alert alert-success" role="alert" ng-if="updateSuccess">Покемон {{pokemon.objectId}} обновился!</div>
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Вес</label>
+                    <input ng-model="pokemon.weight" required>
+                </md-input-container>
 
-<form name="pokemonForm" novalidate>
-    <div class="form-group">
-        <label>Имя</label>
-        <p class="form-control-static">{{pokemon.name}}</p>
-    </div>
-    <div class="form-group">
-        <label>Вес</label>
-        <input class="form-control" ng-model="pokemon.weight" type="text" placeholder="Вес">
-    </div>
-    <div class="form-group">
-        <label>Рост</label>
-        <input class="form-control" ng-model="pokemon.height" type="text" placeholder="Рост">
-    </div>
-    <button type="submit" class="btn btn-default" ng-click="updatePokemon()" ng-disabled="pokemonForm.$invalid">Обновить</button>
-</form>
+                <md-input-container class="md-block" flex-gt-xs>
+                    <label>Рост</label>
+                    <input ng-model="pokemon.height">
+                </md-input-container>
+
+                <md-button class="md-raised md-primary" ng-click="updatePokemon()" ng-disabled="pokemonForm.$invalid">Обновить</md-button>
+
+            </form>
+
+        </md-card-content>
+    </md-card>
+
+</md-content>
